@@ -1,3 +1,5 @@
+import {User} from "./user";
+
 export type Todo = {
     id: number;
     title: string;
@@ -5,3 +7,11 @@ export type Todo = {
     status: string;
     user_id: number;
 };
+
+export const InitTodo: Todo = {
+    id: 0,
+    title: "",
+    body: "",
+    status: "",
+    user_id: 0,
+}

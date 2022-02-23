@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {User} from "../../types/user";
+import {Link} from "react-router-dom";
 
 const Users = () => {
     const [users, setUsers] = useState<User[]>([]);
@@ -53,29 +54,15 @@ const Users = () => {
                             </thead>
                             <tbody className="bg-white divide-y divide-gray-200">
                             {users.map((user) => (
-                                <tr key={user.email}>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="flex items-center">
-                                            <div className="ml-4">
-                                                <div
-                                                    className="text-sm font-medium text-gray-900">{user.last_name}</div>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                                        <div className="text-sm text-gray-900">{user.first_name}</div>
-                                    </td>
-                                    <td className="px-6 py-4 whitespace-nowrap">
-                      <span
-                          className="text-sm font-medium text-gray-900">
-                        {user.email}
-                      </span>
-                                    </td>
+                                <tr key={user.id}>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.last_name}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.first_name}</td>
+                                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.email}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{user.age}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                                        <Link to={`/users/${user.id}`} className="text-indigo-600 hover:text-indigo-900">
                                             Edit
-                                        </a>
+                                        </Link>
                                     </td>
                                 </tr>
                             ))}

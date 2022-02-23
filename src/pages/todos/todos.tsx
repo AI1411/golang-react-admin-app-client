@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {Todo} from "../../types/todo";
+import {Link} from "react-router-dom";
 
 const Todos: React.FC = () => {
     const [todos, setTodos] = useState<Todo[]>([]);
@@ -15,7 +16,12 @@ const Todos: React.FC = () => {
         })
     };
     return (
-        <div className="flex flex-col">
+        <div className="flex flex-col mx-10 my-10">
+            <div className="mb-3">
+                <Link to="/todos/register"
+                    className="p-2 pl-5 pr-5 bg-transparent border-2 border-gray-500 text-gray-500 text-lg rounded-lg hover:bg-gray-500 hover:text-gray-100 focus:border-4 focus:border-gray-300">タスクを追加する
+                </Link>
+            </div>
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                 <div className="py-2 align-middle inline-block min-w-full sm:px-6 lg:px-8">
                     <div className="shadow overflow-hidden border-b border-gray-200 sm:rounded-lg">
@@ -73,9 +79,10 @@ const Todos: React.FC = () => {
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{todo.user_id}</td>
                                     <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                        <a href="#" className="text-indigo-600 hover:text-indigo-900">
+                                        <Link to={`/todos/${todo.id}`}
+                                              className="text-indigo-600 hover:text-indigo-900">
                                             Edit
-                                        </a>
+                                        </Link>
                                     </td>
                                 </tr>
                             ))}
