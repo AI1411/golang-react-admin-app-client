@@ -20,3 +20,22 @@ export const STATUS_ARRAY: {id: number, name: string}[] = [
         name: "done"
     }
 ];
+
+export const STATUS_COLOR: {status: string, color: string}[] = [
+    {
+        "status": "success",
+        "color": "green"
+    },
+    {
+        "status": "canceled",
+        "color": "red"
+    },
+    {
+        "status": "wait",
+        "color": "gray"
+    },
+    {
+        "status": "done",
+        "color": "blue"
+    },
+]

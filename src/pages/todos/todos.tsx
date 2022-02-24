@@ -2,6 +2,9 @@ import React, {useEffect, useState} from 'react';
 import axios from "axios";
 import {Todo} from "../../types/todo";
 import {Link} from "react-router-dom";
+import {STATUS_COLOR} from "../../const";
+
+const statusColor = STATUS_COLOR;
 
 const Todos: React.FC = () => {
     const [todos, setTodos] = useState<Todo[]>([]);
@@ -15,11 +18,17 @@ const Todos: React.FC = () => {
             console.log(err);
         })
     };
+    const getStatusColor = (statusName: string) => {
+        const name = statusColor.find(status => status.status === statusName);
+        if (name) {
+            return name.color;
+        }
+    }
     return (
         <div className="flex flex-col mx-10 my-10">
             <div className="mb-3">
                 <Link to="/todos/register"
-                    className="p-2 pl-5 pr-5 bg-transparent border-2 border-gray-500 text-gray-500 text-lg rounded-lg hover:bg-gray-500 hover:text-gray-100 focus:border-4 focus:border-gray-300">タスクを追加する
+                      className="p-2 pl-5 pr-5 bg-transparent border-2 border-gray-500 text-gray-500 text-lg rounded-lg hover:bg-gray-500 hover:text-gray-100 focus:border-4 focus:border-gray-300">タスクを追加する
                 </Link>
             </div>
             <div className="-my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
@@ -73,7 +82,7 @@ const Todos: React.FC = () => {
                                     </td>
                                     <td className="px-6 py-4 whitespace-nowrap">
                       <span
-                          className="text-sm font-medium text-gray-900">
+                          className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-${getStatusColor(todo.status)}-100`}>
                         {todo.status}
                       </span>
                                     </td>
