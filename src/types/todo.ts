@@ -1,5 +1,3 @@
-import {User} from "./user";
-
 export type Todo = {
     id: number;
     title: string;
@@ -13,5 +11,5 @@ export const InitTodo: Todo = {
     title: "",
     body: "",
     status: "",
-    user_id: 0,
+    user_id: 0
 }
