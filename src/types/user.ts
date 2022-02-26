@@ -4,6 +4,7 @@ export type User = {
     id: number | null;
     first_name: string;
     last_name: string;
+    image: string;
     age: number;
     email: string;
     password: string;
@@ -16,6 +17,7 @@ export const InitUser: User = {
     id: null,
     first_name: "",
     last_name: "",
+    image: "",
     age: 0,
     email: "",
     password: "",
