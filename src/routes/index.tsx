@@ -7,6 +7,7 @@ import Todos from "../pages/todos/todos";
 import UserDetail from "../pages/users/detail";
 import TodoDetail from "../pages/todos/detail";
 import RegisterTodo from "../pages/todos/register";
+import CalendarIndex from "../pages/calendar";
 
 const AppRoutes = () => {
     return (
@@ -14,6 +15,7 @@ const AppRoutes = () => {
             <Header />
             <Routes>
                 <Route path="/" element={<App/>}/>
+                <Route path="/calendar" element={<CalendarIndex/>}/>
                 <Route path="users" element={<Users/>}/>
                 <Route path="users/:id" element={<UserDetail/>}/>
                 <Route path="todos" element={<Todos/>}/>
