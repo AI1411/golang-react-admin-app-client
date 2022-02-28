@@ -8,6 +8,7 @@ export type User = {
     age: number;
     email: string;
     password: string;
+    password_confirmation: string;
     created_at: string;
     updated_at: string;
     todos: Todo[]
@@ -21,6 +22,7 @@ export const InitUser: User = {
     age: 0,
     email: "",
     password: "",
+    password_confirmation: "",
     created_at: "",
     updated_at: "",
     todos: [InitTodo],

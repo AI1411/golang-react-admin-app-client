@@ -8,6 +8,7 @@ import UserDetail from "../pages/users/detail";
 import TodoDetail from "../pages/todos/detail";
 import RegisterTodo from "../pages/todos/register";
 import CalendarIndex from "../pages/calendar";
+import Register from "../pages/auth/register";
 
 const AppRoutes = () => {
     return (
@@ -21,6 +22,7 @@ const AppRoutes = () => {
                 <Route path="todos" element={<Todos/>}/>
                 <Route path="todos/:id" element={<TodoDetail/>}/>
                 <Route path="todos/register" element={<RegisterTodo/>}/>
+                <Route path="auth/register" element={<Register/>}/>
             </Routes>
         </div>
     );
